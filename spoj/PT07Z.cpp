@@ -2,37 +2,49 @@
 
 using namespace std;
 
-int longest(map<int, vector<int> > graph, int r) {
-    if(graph[r] == NULL || graph[r].size() == 0) {
-        return 0;
-    }
-    
-    int maior = longest(graph, graph[r].at(0));
-    
-    for(int i = 1; i < graph[r].size(); i++) {
-        int temp;
-        if(maior < (temp = longest(graph, graph[r].at(i))) {
-            maior = temp;
+map<int, pair<bool, vector<int> > > graph; // nó - visitado - lista de nós conectados
+
+pair<int, int> longest(int r) {
+    graph[r].first = true;
+
+    if(graph[r].second.size() == 0)
+        return {0, 0};
+
+    pair<int, int> maiores = {0, 0}, temp;
+    for(int i = 0; i < graph[r].second.size(); i++) {
+        if(!graph[graph[r].second.at(i)].first) {
+            temp = longest(graph[r].second.at(i));
+
+            if(temp.first + 1 > maiores.first) {
+                if(temp.second > maiores.second)
+                    maiores = temp;
+                else
+                    maiores.first = temp.first;
+            } 
+            else if(temp.first > maiores.second)
+                maiores.second = temp.first;
         }
     }
-    
-    return maior + 1;
+
+    return {maiores.first, maiores.second};
 }
 
 int main() {
-    map<int, vector<int> > graph;
     int n;
     int u, v;
-    int r = -1;
-    
+
     cin >> n;
     
     while(n--) {
         cin >> u >> v;
-        graph[u].push_back(v);
+        graph[u].first = graph[v].first = false;
+        graph[u].second.push_back(v);
+        graph[v].second.push_back(u);
     }
     
-    cout << longest(graph, 
+    pair<int, int> r = longest(u);
+
+    cout << r.first + r.second << endl;
     
     return 0;
 }
