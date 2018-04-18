@@ -3,46 +3,48 @@
 using namespace std;
 
 int main() {
-    int n, m, u, v, atual;
+    int n, m, u, v;
     map<int, vector<int> > graph;
-    map<int, bool> visitado;
-    bool flag = false;
-    queue<int> q;
-    
+    map<int, bool> painted;
+
     cin >> n >> m;
      
-    while(m--) {
+    for(int i = 0; i < m; i++) {
         cin >> u >> v;
         
+        painted[u] = painted[v] = false;
+
         graph[u].push_back(v);
+        graph[v].push_back(u);
     }
     
     if(graph.size() == 0) {
         cout << "YES" << endl;
         return 0;
     }
-    
-    q.push(graph.begin()->first);
-    
+
+    queue<int> q;
+    int visited = 0;
+
+    q.push(u);
     while(!q.empty()) {
-        atual = q.front();
+        int atual = q.front();
         q.pop();
-        
-        if(visitado[atual]) {
-            flag = true;
-            break;
-        }
-        
-        visitado[atual] = true;
+
+        painted[atual] = true;
+        visited++;
         
         for(int i = 0; i < graph[atual].size(); i++) {
-            q.push(graph[atual].at(i));
+            if(!painted[graph[atual].at(i)]) {
+                q.push(graph[atual].at(i));
+            }
         }
     }
-    if(flag) {
-        cout << "NO" << endl;
-    } else {
+
+    if(visited == n && m == n-1) {
         cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
     }
     
     return 0;

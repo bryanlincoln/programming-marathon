@@ -2,49 +2,44 @@
 
 using namespace std;
 
-map<int, pair<bool, vector<int> > > graph; // nó - visitado - lista de nós conectados
+map<int, pair<bool, vector<int> > > graph;
 
 pair<int, int> longest(int r) {
+    pair<int, int> maior = {0, r}, temp;
+
     graph[r].first = true;
 
-    if(graph[r].second.size() == 0)
-        return {0, 0};
-
-    pair<int, int> maiores = {0, 0}, temp;
     for(int i = 0; i < graph[r].second.size(); i++) {
-        if(!graph[graph[r].second.at(i)].first) {
-            temp = longest(graph[r].second.at(i));
+        if(graph[graph[r].second.at(i)].first)
+            continue;
 
-            if(temp.first + 1 > maiores.first) {
-                if(temp.second > maiores.second)
-                    maiores = temp;
-                else
-                    maiores.first = temp.first;
-            } 
-            else if(temp.first > maiores.second)
-                maiores.second = temp.first;
+        temp = longest(graph[r].second.at(i));
+        if(temp.first > maior.first) {
+            maior = temp;
         }
     }
 
-    return {maiores.first, maiores.second};
+    return {maior.first + 1, maior.second};
 }
 
 int main() {
-    int n;
-    int u, v;
+    int n, m, u, v;
+    cin >> n >> m;
 
-    cin >> n;
-    
-    while(n--) {
+    for(int i = 0; i < m; i++) {
         cin >> u >> v;
+        
         graph[u].first = graph[v].first = false;
         graph[u].second.push_back(v);
         graph[v].second.push_back(u);
     }
-    
-    pair<int, int> r = longest(u);
 
-    cout << r.first + r.second << endl;
+    pair<int, int> d1, d2;
+
+    d1 = longest(u);
+    d2 = longest(d1.second);
+
+    cout << d1.first + d2.first << endl;
     
     return 0;
 }
