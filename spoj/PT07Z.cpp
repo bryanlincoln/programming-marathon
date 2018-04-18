@@ -2,9 +2,7 @@
 
 using namespace std;
 
-map<int, pair<bool, vector<int> > > graph;
-
-pair<int, int> longest(int r) {
+pair<int, int> longest(map<int, pair<bool, vector<int> > > graph, int r) {
     pair<int, int> maior = {0, r}, temp;
 
     graph[r].first = true;
@@ -13,7 +11,7 @@ pair<int, int> longest(int r) {
         if(graph[graph[r].second.at(i)].first)
             continue;
 
-        temp = longest(graph[r].second.at(i));
+        temp = longest(graph, graph[r].second.at(i));
         if(temp.first > maior.first) {
             maior = temp;
         }
@@ -24,20 +22,26 @@ pair<int, int> longest(int r) {
 
 int main() {
     int n, m, u, v;
-    cin >> n >> m;
+    map<int, pair<bool, vector<int> > > graph1, graph2;
 
+    cin >> n >> m;
+    
     for(int i = 0; i < m; i++) {
         cin >> u >> v;
         
-        graph[u].first = graph[v].first = false;
-        graph[u].second.push_back(v);
-        graph[v].second.push_back(u);
+        graph1[u].first = graph1[v].first = false;
+        graph1[u].second.push_back(v);
+        graph1[v].second.push_back(u);
+
+        graph2[u].first = graph2[v].first = false;
+        graph2[u].second.push_back(v);
+        graph2[v].second.push_back(u);
     }
 
     pair<int, int> d1, d2;
 
-    d1 = longest(u);
-    d2 = longest(d1.second);
+    d1 = longest(graph1, u);
+    d2 = longest(graph2, d1.second);
 
     cout << d1.first + d2.first << endl;
     
