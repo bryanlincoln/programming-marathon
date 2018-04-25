@@ -1,49 +1,49 @@
 #include <bits/stdc++.h>
+#define MAX 10000
 
 using namespace std;
 
-pair<int, int> longest(map<int, pair<bool, vector<int> > > graph, int r) {
-    pair<int, int> maior = {0, r}, temp;
+map<int, vector<int>> graph;
+bool vis[MAX] = {false};
 
-    graph[r].first = true;
+int deepness(int * raiz, bool visitado) {
+    int atual = *raiz;
 
-    for(int i = 0; i < graph[r].second.size(); i++) {
-        if(graph[graph[r].second.at(i)].first)
-            continue;
+    vis[atual] = visitado;
 
-        temp = longest(graph, graph[r].second.at(i));
-        if(temp.first > maior.first) {
-            maior = temp;
+    int maiorId = atual, maiorPath = 0;
+    for(int i = 0; i < graph[atual].size(); i++) {
+        if(vis[graph[atual].at(i)] == visitado) continue;
+        int temp = graph[atual].at(i);
+        int r = deepness(&temp, visitado);
+        if(maiorPath < r) {
+            maiorId = temp;
+            maiorPath = r;
         }
     }
 
-    return {maior.first + 1, maior.second};
+    *raiz = maiorId;
+
+    return maiorPath + 1;
 }
 
 int main() {
-    int n, m, u, v;
-    map<int, pair<bool, vector<int> > > graph1, graph2;
+    int N;
 
-    cin >> n >> m;
-    
-    for(int i = 0; i < m; i++) {
+    cin >> N;
+    N--;
+    while(N--) {
+        int u, v;
         cin >> u >> v;
-        
-        graph1[u].first = graph1[v].first = false;
-        graph1[u].second.push_back(v);
-        graph1[v].second.push_back(u);
-
-        graph2[u].first = graph2[v].first = false;
-        graph2[u].second.push_back(v);
-        graph2[v].second.push_back(u);
+        graph[u].push_back(v);
+        graph[v].push_back(u);
     }
 
-    pair<int, int> d1, d2;
+    int raiz = graph.begin()->first;
+    int first = deepness(&raiz, true);
+    int second = deepness(&raiz, false);
 
-    d1 = longest(graph1, u);
-    d2 = longest(graph2, d1.second);
+    cout << second - 1 << endl;
 
-    cout << d1.first + d2.first << endl;
-    
     return 0;
 }
