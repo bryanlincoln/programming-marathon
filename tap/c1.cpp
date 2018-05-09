@@ -1,41 +1,54 @@
 #include <bits/stdc++.h>
 #define N 21
+#define DIRS 4
 using namespace std;
 
-char mapa[N][N];
-int caminhos[N][N] = {-1};
+string mapa[N+2];
+int esq[N+2][N+2];
 int l, c;
+int x[DIRS] = {0,0,1,-1};
+int y[DIRS] = {1,-1,0,0};
+char ok[DIRS] = {'|', '|', '-', '-'};
 
 int main() {
+    ios::sync_with_stdio(false);
+
     cin >> l >> c;
 
-    for(int i = 0; i < l; i++) {
-        for(int j = 0; j < c; j++) {
-            char temp;
-            cin >> temp;
-            mapa[i][j] = temp;
+    mapa[0].insert(mapa[0].begin(), c+2, '*');
+    for(int i = 1; i <= l; i++) {
+        cin >> mapa[i];
+        mapa[i] = "*" + mapa[i] + "*";
+    }
+    mapa[l+1].insert(mapa[l+1].begin(), c+2, '*');
+
+    queue<pair<int, int> > bfs;
+
+    bfs.push({1, 1});
+    esq[1][1] = 1;
+
+    while(!bfs.empty()) {
+        int i = bfs.front().first, j = bfs.front().second;
+        bfs.pop();
+
+        if(i == l && j == c) {
+            break;
         }
+
+        for(int dir = 0; dir < DIRS; dir++) {
+            if(mapa[i + y[dir]][j + x[dir]] == '*') continue;
+            
+            if(mapa[i][j] == '+' || mapa[i][j] == ok[dir]) {
+                bfs.push({i + y[dir], j + x[dir]});
+                esq[i + y[dir]][j + x[dir]] = esq[i][j] + 1;
+            }
+        }
+
+        mapa[i][j] = '*';
     }
 
-    caminhos[0][0] = 0;
 
-    for(int i = 0; i < l; i++) {
-        for(int j = 0; j < c; j++) {
-            if(mapa[i][j] == '+' || mapa[i][j] == '|') {
-                if(i + 1 < l && (caminhos[i+1][j] > caminhos[i][j] + 1 || caminhos[i+1][j]) == -1)
-                    caminhos[i+1][j] = caminhos[i][j] + 1;
-                if(i - 1 >= 0 && (caminhos[i-1][j] > caminhos[i][j] + 1 || caminhos[i-1][j]) == -1)
-                    caminhos[i-1][j] = caminhos[i][j] + 1;
-            }
-            if(mapa[i][j] == '+' || mapa[i][j] == '-') {
-                if(j + 1 < c && (caminhos[i][j+1] > caminhos[i][j] + 1 || caminhos[i][j+1]) == -1)
-                    caminhos[i][j+1] = caminhos[i][j] + 1;
-                if(j - 1 >= 0 && (caminhos[i][j-1] > caminhos[i][j] + 1 || caminhos[i][j-1]) == -1)
-                    caminhos[i][j-1] = caminhos[i][j] + 1;
-            }
-        }
-    }
-
+    cout << (esq[l][c] == 0 ? -1 : esq[l][c]) << endl;
 
 
     return 0;
