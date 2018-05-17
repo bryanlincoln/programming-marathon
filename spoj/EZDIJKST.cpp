@@ -7,11 +7,12 @@ long dijkstra(map< int, vector<pair<int, int> > > graph, int v, int s, int f) {
     long dist[MAX];
     bool vis[MAX];
 
-    for(int i = 0; i < v; i++) {
+    for(int i = 1; i <= v; i++) {
         vis[i] = false;
         dist[i] = 1e9;
     }
 
+    dist[s] = 0;
     que.push({0, s});
     while(!que.empty()) {
         int atual = que.top().second;
@@ -23,7 +24,7 @@ long dijkstra(map< int, vector<pair<int, int> > > graph, int v, int s, int f) {
             int vizinho = graph[atual].at(i).first;
             int custo = graph[atual].at(i).second;
 
-            if(dist[vizinho] > dist[atual] + custo) {
+            if(!vis[atual] && dist[vizinho] > dist[atual] + custo) {
                 dist[vizinho] = dist[atual] + custo;
                 que.push({dist[vizinho], vizinho});
             }
@@ -49,12 +50,7 @@ int main() {
             int a, b, c;
             cin >> a >> b >> c;
             graph[a].push_back({b, c});
-            graph[b].push_back({a, c});
-        }
-
-        for(map< int, vector<pair<int, int> > >::iterator it = graph.begin(); it != graph.end(); it++) {
-            for(int i = 0; i < it->second.size(); i++)
-                cout << it->first << " -> " << it->second.fisrt << " (" << it->second.second << ")" << endl;
+            //graph[b].push_back({a, c});
         }
         
         int s, f;

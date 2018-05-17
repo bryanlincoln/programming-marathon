@@ -1,65 +1,83 @@
 #include <bits/stdc++.h>
+#define N 510
 
 using namespace std;
 
-map<int, vector<pair<int, int> > > graph; // i -> adjascentes (no, hora)
-bool * visitado;
+bool vis[N];
+bool adj[N][N];
+long dist[N];
 
-int min(int o, int d) {
-    int min_h;
-    int tmp_min;
-    
-    if(o == d) {
-        return 0;
+long min(map<long, vector<pair<long, long> > > graph, long n, long o, long d) {
+    priority_queue<pair<long, long>, vector<pair<long, long> >, greater<pair<long, long> > > que;
+
+    for(long i = 1; i <= n; i++) {
+        vis[i] = false;
+        dist[i] = 1e9;
     }
-    
-    if(graph[o].size() == 0 || visitado[o]) {
-        return -1;
-    }
-    
-    visitado[o] = true;
-    
-    min_h = graph[o].at(0).second + min(graph[o].at(0).first, d);
-    for(int i = 1; i < graph[o].size(); i++) {
-        tmp_min = min(graph[o].at(i).first, d);
-        if((min_h == -1 && tmp_min >= 0) || min_h > tmp_min) {
-            min_h = graph[o].at(i).second + tmp_min;
+
+    dist[o] = 0;
+    que.push({0, o});
+    while(!que.empty()) {
+        long atual = que.top().second;
+        que.pop();
+
+        if(vis[atual]) continue;
+
+        for(long i = 0; i < graph[atual].size(); i++) {
+            long vizinho = graph[atual].at(i).first;
+            long custo = graph[atual].at(i).second;
+            if(adj[vizinho][atual]){
+                custo = 0;
+            }
+
+            if(!vis[vizinho] && dist[vizinho] > dist[atual] + custo) {
+                dist[vizinho] = dist[atual] + custo;
+                que.push({-dist[vizinho], vizinho});
+            }
         }
+
+        vis[atual] = true;
     }
 
-    return min_h;
+    return dist[d];
 }
 
 int main() {
-    int n, e, x, y, h, k, o, d, res;
+    long n, e;
 
     cin >> n >> e;
     
-    while(n != 0 | e != 0) {
+    while(n != 0 || e != 0) {
+        map<long, vector<pair<long, long> > > graph; // i -> adjascentes (no, hora)
+
+        for(long i = 0; i < n; i++) {
+            for(long j = 0; j < n; j++) {
+                adj[i][j] = false;
+            }
+        }
+
         while(e--) {
+            long x, y, h;
             cin >> x >> y >> h;
             
             graph[x].push_back({y, h});
-            graph[y].push_back({x, h});
+            adj[x][y] = true;
         }
-        
-        visitado = (bool *) calloc(graph.size(), graph.size() * sizeof(bool));
-        
+        long k;
         cin >> k;
         while(k--) {
+            long o, d;
             cin >> o >> d;
+            long res = min(graph, n, o, d);
             
-            res = min(o, d);
-            
-            if(res == -1) {
+            if(res == 1e9) {
                 cout << "Nao e possivel entregar a carta" << endl;
             } else {
                 cout << res << endl;
             }
         }
-        
-        free(visitado);
         cout << endl;
+        cin >> n >> e;
     }
     
     return 0;
