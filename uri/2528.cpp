@@ -6,7 +6,6 @@ int main() {
     while(cin >> n >> m) {
         map<int, vector<int> > graph;
 
-
         while(m--) {
             int a, b;
             cin >> a >> b;
@@ -35,7 +34,7 @@ int main() {
                 int vizinho = graph[atual].at(i);
                 if(vizinho != e && !vis[vizinho] && dist[vizinho] > dist[atual] + 1) {
                     dist[vizinho] = dist[atual] + 1;
-                    que.push({-dist[vizinho], vizinho});
+                    que.push({dist[vizinho], vizinho});
                 }
             }
 
