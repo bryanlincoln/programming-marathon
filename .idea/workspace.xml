@@ -9,11 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c707ac27-24a9-4d8f-b2fc-402547e4e9b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/spoj/input" beforeDir="false" afterPath="$PROJECT_DIR$/spoj/input" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uri/input" beforeDir="false" afterPath="$PROJECT_DIR$/uri/input" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uri/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/uri/makefile" afterDir="false" />
-    </list>
+    <list default="true" id="c707ac27-24a9-4d8f-b2fc-402547e4e9b1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +20,21 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uva/meeting.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="98" column="41" lean-forward="true" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
+            <state relative-caret-position="293">
+              <caret line="73" column="9" selection-end-line="90" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uva/input">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            <state relative-caret-position="560">
+              <caret line="12566" selection-start-line="12566" selection-end-line="12566" />
             </state>
           </provider>
         </entry>
@@ -51,8 +47,19 @@
       <find>cout</find>
       <find>intersec</find>
       <find>dist</find>
+      <find>s1</find>
+      <find>young</find>
+      <find>dist2</find>
+      <find>graph</find>
       <find>dist1</find>
+      <find>int_max</find>
+      <find>minc</find>
+      <find>c2</find>
     </findStrings>
+    <replaceStrings>
+      <replace>(*dist)</replace>
+      <replace>(*graph)</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,8 +69,8 @@
       <list>
         <option value="$PROJECT_DIR$/uva/bangladesh.cpp" />
         <option value="$PROJECT_DIR$/uva/nonstop.cpp" />
-        <option value="$PROJECT_DIR$/uva/input" />
         <option value="$PROJECT_DIR$/uva/meeting.cpp" />
+        <option value="$PROJECT_DIR$/uva/input" />
       </list>
     </option>
   </component>
@@ -88,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,10 +111,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -143,16 +151,18 @@
       <workItem from="1555069355315" duration="11244000" />
       <workItem from="1555180400247" duration="139000" />
       <workItem from="1555870784198" duration="414000" />
+      <workItem from="1555968908411" duration="8251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11924000" />
+    <option name="totallyTimeSpent" value="20175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -164,7 +174,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.25627044" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28026173" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -197,17 +207,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uva/input">
+    <entry file="file://$PROJECT_DIR$/uva/meeting.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        <state relative-caret-position="293">
+          <caret line="73" column="9" selection-end-line="90" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uva/meeting.cpp">
+    <entry file="file://$PROJECT_DIR$/uva/input">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="98" column="41" lean-forward="true" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
+        <state relative-caret-position="560">
+          <caret line="12566" selection-start-line="12566" selection-end-line="12566" />
         </state>
       </provider>
     </entry>
