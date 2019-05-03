@@ -21,20 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uva/meeting.cpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uva/mpi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="73" column="9" selection-end-line="90" selection-end-column="1" />
+            <state relative-caret-position="124">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uva/input">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="560">
-              <caret line="12566" selection-start-line="12566" selection-end-line="12566" />
+              <caret line="2538" selection-start-line="2538" selection-end-line="2538" />
             </state>
           </provider>
         </entry>
@@ -70,17 +70,8 @@
         <option value="$PROJECT_DIR$/uva/bangladesh.cpp" />
         <option value="$PROJECT_DIR$/uva/nonstop.cpp" />
         <option value="$PROJECT_DIR$/uva/meeting.cpp" />
+        <option value="$PROJECT_DIR$/uva/mpi.cpp" />
         <option value="$PROJECT_DIR$/uva/input" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/TAP.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
       </list>
     </option>
   </component>
@@ -151,12 +142,12 @@
       <workItem from="1555069355315" duration="11244000" />
       <workItem from="1555180400247" duration="139000" />
       <workItem from="1555870784198" duration="414000" />
-      <workItem from="1555968908411" duration="8251000" />
+      <workItem from="1555968908411" duration="10396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20175000" />
+    <option name="totallyTimeSpent" value="22320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -209,15 +200,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uva/meeting.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="73" column="9" selection-end-line="90" selection-end-column="1" />
+        <state relative-caret-position="262">
+          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uva/input">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
-          <caret line="12566" selection-start-line="12566" selection-end-line="12566" />
+          <caret line="2538" selection-start-line="2538" selection-end-line="2538" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uva/mpi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
