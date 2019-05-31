@@ -22,4 +22,4 @@ $(EXEC): $(OBJECTS)
 # To remove generated files
 clean:
 	@echo "Removing executables"
-	@rm -rf $(EXEC) $(OBJECTS)
+	@rm -f $(EXEC) $(OBJECTS)

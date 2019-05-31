@@ -1,0 +1,1 @@
+# compute N nodes - nodes in maximum spanning tree
